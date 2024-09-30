@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdbool.h>
 # include <string.h>
 # include <limits.h>
 # include "../Libft/libft.a"
@@ -24,7 +25,11 @@ typedef struct s_stack
 {
 	int		nbr;
 	int		index;
+	int		cost;
+	bool	cheap;
+	bool	abovemedian;
 	struct s_stack	*next;
+	struct s_stack	*prev;
 	struct s_stack	*target;
 }				t_stack;
 

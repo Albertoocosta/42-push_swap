@@ -12,13 +12,23 @@
 
 #include "includes/push_swap.h"
 
+int	stackinit()
+{
+
+}
+
 int	main(int argc, char **argv)
 {
-	char **split;
-	
+	t_stack		*stack_a;
+	char 		**split;
+	int 		i;
+
 	if (argc == 2)
 	{
-		split = ft_split(argv[1], ' ');
-	}
-	
+		while (argv[1][i])
+		{
+			if (argv[1][i] < '0' && argv[1][i] > '9')
+				return (1);
+		}
+	}	
 }
