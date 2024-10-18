@@ -18,8 +18,8 @@
 # include <stdbool.h>
 # include <string.h>
 # include <limits.h>
-# include "../Libft/libft.a"
-# include "../Printf/libftprintf.a"
+# include "../Libft/libft.h"
+# include "../Printf/ft_printf.h"
 
 typedef struct s_node
 {
@@ -34,8 +34,33 @@ typedef struct s_node
 }				t_node;
 
 
-int	stackinit(t_node **node, char ***split, char **argv, int argc);
+int	stackinit(t_node **stack_a, char ***split, char **argv);
 t_node	*create_node(int content);
 t_node	*add_node_to_list(t_node *node, int content);
+long	ft_atol(char *nbr);
+int		stacklen(t_node *node);
+bool	issorted(t_node *node);
+int		is_repeat(t_node *stack_a, int nbr);
+void	ft_error(t_node **stack_a, t_node **stack_b, char **argv);
+void	freestack(t_node **stack);
+void	freearg(char **arg);
+t_node	*find_last(t_node *stack);
+void	push(t_node **dest, t_node **origin);
+void	pa(t_node **a, t_node **b, bool print);
+void	pb(t_node **a, t_node **b, bool print);
+void	rotate(t_node **stack);
+void	ra(t_node **a, bool print);
+void	rb(t_node **b, bool print);
+void	rr(t_node **a, t_node **b, bool print);
+void	rev_rotate(t_node **stack);
+void	rra(t_node **a, bool print);
+void	rrb(t_node **b, bool print);
+void	rrr(t_node **a, t_node **b, bool print);
+void	swap(t_node **head);
+void	sa(t_node **a, bool print);
+void	sb(t_node **b, bool print);
+void	ss(t_node **a, t_node **b, bool print);
+t_node	*max(t_node *stack);
+t_node	*min(t_node *stack);
 
 #endif

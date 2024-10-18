@@ -14,15 +14,15 @@
 
 t_node	*create_node(int content)
 {
-	t_node node;
+	t_node *node;
 
 	node = (t_node *) malloc(sizeof(t_node));
 	if (!node)
 		return (NULL);
 	node->nbr = content;
-	node->index = NULL;
-	node->cost = NULL;
+	node->next = NULL;
 	node->target = NULL;
+	node->prev = NULL;
 	return (node);
 }
 t_node	*add_node_to_list(t_node *node, int content)
@@ -38,4 +38,44 @@ t_node	*add_node_to_list(t_node *node, int content)
 	new_node->prev = node;
 	return (new_node);
 }
+int	stacklen(t_node *node)
+{
+	int	i;
 
+	i = 0;
+	if (!node)
+	{
+		return (0);
+	}
+	while (node)
+	{
+		node = node->next;
+		i++;
+	}
+	return (i);
+}
+void	freestack(t_node **stack)
+{
+	t_node *temp;
+	t_node *actual;
+
+	if (!stack)
+		return ;
+	actual = *stack;
+	while (actual)
+	{
+		temp = actual->next;
+		free(actual);
+		actual = temp;
+	}
+	stack = NULL;
+}
+
+t_node	*find_last(t_node *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
+}
