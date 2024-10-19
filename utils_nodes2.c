@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:00:43 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/10/01 17:35:21 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/10/19 12:47:43 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,11 @@ t_node	*min(t_node *stack)
 		stack = stack->next;
 	}
 	return (min_node);
+}
+void check_errors(t_node **a)
+{
+	int	i;
+
+	i = 0;
+	if ()
 }

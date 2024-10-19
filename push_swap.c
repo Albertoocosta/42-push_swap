@@ -6,19 +6,17 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 12:32:32 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/10/01 17:25:34 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/10/19 12:43:30 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-int	stackinit(t_node **stack_a, char ***split, char **argv)
+int	stackinit(t_node **stack_a, char **argv)
 {
 	int 	i;
 	long	nbr;
-	t_node	*last_node;
-
-	last_node = NULL;
+	
 	i = -1;
 	while (argv[++i])
 	{
@@ -30,37 +28,30 @@ int	stackinit(t_node **stack_a, char ***split, char **argv)
 		if (stack_a == NULL)
 		{
 			*stack_a = create_node((int)nbr);
-			last_node = *stack_a;
 		}
-		else
-			last_node = add_node_to_list(last_node, (int)nbr);
 	}
 	return (0);
 }
 
 int	main(int argc, char **argv)
 {
-	t_node		*node;
-	char 		**split;
-	int 		i;
-
-	if (argc < 2 || (argc == 2 && !argv[1][0]))
-	{
-		ft_printf("Error\n");
+	t_node	*a;
+//	t_node	*b;
+	
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
-	}
 	else if (argc == 2)
+		argv = ft_split(argv[1], ' ');
+	stackinit(&a, argv);
+	if (!issorted(a))
 	{
-		while (argv[1][i])
-		{
-			if (!(argv[1][i] >= '0' && argv[1][i] <= '9') || !(argv[1][i] == ' '))
-			{
-				ft_printf("Erroraqui\n");
-				return (1);
-			}
-			i++;	
-		}
-		split = ft_split(argv[1], ' ');		
+		if (stacklen(a) == 2)
+			sa(&a, false);
+		else if (stacklen(a) == 3)
+			sort_three(&a);
+//		else
+			//sortstacks(&a, &b);
 	}
-	stackinit(&node, &split, argv);
+	freestack(&a);
+	return (0);
 }

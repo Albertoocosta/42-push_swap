@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:00:43 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/10/01 17:35:21 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/10/19 12:43:22 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,11 @@ void	sort_three(t_node **stack)
 {
 	t_node	*nodebiggest;
 
-	nodebiggest = max(**stack);
+	nodebiggest = max(*stack);
+	if (nodebiggest == *stack)
+		ra(stack, false);
+	else if ((*stack)->next == nodebiggest)
+		rra(stack, false);
+	if ((*stack)->nbr > (*stack)->next->nbr)
+		sa(stack, false);
 }

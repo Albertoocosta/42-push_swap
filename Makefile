@@ -3,7 +3,7 @@ CC = cc
 FLAGS = -Wall -Wextra -Werror -g
 LIBFT = Libft/libft.a
 PRINTF = Printf/libftprintf.a
-SRCS = push_swap.c utils_nodes.c utils.c
+SRCS = push_swap.c utils_nodes.c utils.c utils_nodes2.c swap.c push.c rev_rotate.c rotate.c sort_three.c
 
 all: $(NAME)
 
@@ -23,4 +23,3 @@ fclean:
 	@echo ALL CLEAR
 
 re: fclean all
-
