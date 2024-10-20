@@ -51,10 +51,18 @@ t_node	*min(t_node *stack)
 	}
 	return (min_node);
 }
-void check_errors(t_node **a)
+int	check_syntax(char *str)
 {
-	int	i;
-
-	i = 0;
-	if ()
+	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
+		return (1);
+	if ((*str == '+' || *str == '-') && !(str[1] >= '0' && str[1] <= '9'))
+		return (1);
+	while (*str)
+	{
+		if (!(*str >= '0' && *str <= '9'))
+			return (1);
+		str++;
+	}
+	return (0);
 }
+

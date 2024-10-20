@@ -12,30 +12,30 @@
 
 #include "includes/push_swap.h"
 
-t_node	*create_node(int content)
-{
-	t_node *node;
-
-	node = (t_node *) malloc(sizeof(t_node));
-	if (!node)
-		return (NULL);
-	node->nbr = content;
-	node->next = NULL;
-	node->target = NULL;
-	node->prev = NULL;
-	return (node);
-}
-t_node	*add_node_to_list(t_node *node, int content)
+t_node	*add_node_to_list(t_node **stack, int content)
 {
 	t_node	*new_node;
+	t_node	*last_node;
 	
-	new_node = create_node(content);
+	if (!stack)
+		return (NULL);
+	new_node = (t_node *)malloc(sizeof(t_node));
 	if (!new_node)
 		return (NULL);
-	if (!node)
-		return (new_node);
-	node->next = new_node;
-	new_node->prev = node;
+	new_node->next = NULL;
+	new_node->nbr = content;
+	new_node->cheap = 0;
+	if (!(*stack))
+	{
+		*stack = new_node;
+		new_node->prev = NULL;
+	}
+	else
+	{
+		last_node = find_last(*stack);
+		last_node->next = new_node;
+		new_node->prev = last_node;
+	}
 	return (new_node);
 }
 int	stacklen(t_node *node)
@@ -65,6 +65,7 @@ void	freestack(t_node **stack)
 	while (actual)
 	{
 		temp = actual->next;
+		actual->nbr = 0;
 		free(actual);
 		actual = temp;
 	}

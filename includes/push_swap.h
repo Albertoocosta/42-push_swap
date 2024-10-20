@@ -63,5 +63,6 @@ void	ss(t_node **a, t_node **b, bool print);
 void	sort_three(t_node **stack);
 t_node	*max(t_node *stack);
 t_node	*min(t_node *stack);
+int	check_syntax(char *str)
 
 #endif
