@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:00:43 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/10/19 12:43:28 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/10/20 19:27:47 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ void	push(t_node **dest, t_node **origin)
 
 void	pa(t_node **a, t_node **b, bool print)
 {
-	push(a,b);
+	push(a, b);
 	if (!print)
 		ft_printf("pa\n");
 }
 
 void	pb(t_node **a, t_node **b, bool print)
 {
-	push(b,a);
+	push(b, a);
 	if (!print)
 		ft_printf("pb\n");
 }

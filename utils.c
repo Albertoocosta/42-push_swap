@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:00:43 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/10/19 12:43:11 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/10/20 19:32:00 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long	ft_atol(char *nbr)
 {
-	long n;
-	int i;
-	int sig;
+	long	n;
+	int		i;
+	int		sig;
 
 	n = 0;
 	sig = 0;
@@ -34,22 +34,20 @@ long	ft_atol(char *nbr)
 	}
 	while (nbr[i] && (nbr[i] >= '0' || nbr[i] <= '9'))
 	{
-			n = n * 10 + nbr[i] - '0';
-			i++;
+		n = n * 10 + nbr[i] - '0';
+		i++;
 	}
 	return (n * sig);
 }
-void	ft_error(t_node **stack_a, t_node **stack_b, char **argv)
+
+void	ft_error(t_node **stack_a)
 {
 	if (stack_a)
 		freestack(stack_a);
-	if (stack_b)
-		freestack(stack_b);
-	if (argv)
-		freearg(argv);
 	ft_printf("Error\n");
 	exit(1);
 }
+
 bool	issorted(t_node *node)
 {
 	if (!node)
@@ -62,7 +60,8 @@ bool	issorted(t_node *node)
 	}
 	return (true);
 }
-int		is_repeat(t_node *stack_a, int nbr)
+
+int	is_repeat(t_node *stack_a, int nbr)
 {
 	if (!stack_a)
 		return (0);
@@ -74,6 +73,7 @@ int		is_repeat(t_node *stack_a, int nbr)
 	}
 	return (0);
 }
+
 void	freearg(char **arg)
 {
 	int	i;

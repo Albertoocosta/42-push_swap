@@ -3,7 +3,7 @@ CC = cc
 FLAGS = -Wall -Wextra -Werror -g
 LIBFT = Libft/libft.a
 PRINTF = Printf/libftprintf.a
-SRCS = push_swap.c utils_nodes.c utils.c utils_nodes2.c swap.c push.c rev_rotate.c rotate.c sort_three.c sortstacks.c
+SRCS = push_swap.c utils_nodes.c utils.c utils_nodes2.c swap.c push.c rev_rotate.c rotate.c sort_three.c sortstacks.c a_to_b.c b_to_a.c
 
 all: $(NAME)
 

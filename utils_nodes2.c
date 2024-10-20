@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:00:43 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/10/19 12:47:43 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/10/20 19:33:32 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ t_node	*min(t_node *stack)
 	}
 	return (min_node);
 }
+
 int	check_syntax(char *str)
 {
 	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
@@ -66,3 +67,36 @@ int	check_syntax(char *str)
 	return (0);
 }
 
+void	actual_index(t_node *stack)
+{
+	int	i;
+	int	median;
+
+	i = 0;
+	if (!stack)
+		return ;
+	median = stacklen(stack) / 2;
+	while (stack)
+	{
+		stack->index = i;
+		if (i <= median)
+			stack->abovemedian = true;
+		else
+			stack->abovemedian = false;
+		stack = stack->next;
+		i++;
+	}
+}
+
+t_node	*get_cheap(t_node *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheap)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
+}

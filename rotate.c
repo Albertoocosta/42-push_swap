@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:00:43 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/10/19 12:43:24 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/10/20 19:29:39 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rotate(t_node **stack)
 {
-	t_node *last;
+	t_node	*last;
 
 	if (!*stack || !(*stack)->next)
 		return ;
@@ -46,4 +46,12 @@ void	rr(t_node **a, t_node **b, bool print)
 	rotate(b);
 	if (!print)
 		ft_printf("rr\n");
+}
+
+void	rotate_both(t_node **a, t_node **b, t_node *node_cheap)
+{
+	while (*b != node_cheap->target && *a != node_cheap)
+		rr(a, b, false);
+	actual_index(*a);
+	actual_index(*b);
 }

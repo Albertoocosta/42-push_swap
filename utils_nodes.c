@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:00:43 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/10/19 12:43:17 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/10/20 19:32:37 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_node	*add_node_to_list(t_node **stack, int content)
 {
 	t_node	*new_node;
 	t_node	*last_node;
-	
+
 	if (!stack)
 		return (NULL);
 	new_node = (t_node *)malloc(sizeof(t_node));
@@ -25,7 +25,7 @@ t_node	*add_node_to_list(t_node **stack, int content)
 	new_node->next = NULL;
 	new_node->nbr = content;
 	new_node->cheap = 0;
-	if (!(*stack))
+	if (!(*stack) || !stack)
 	{
 		*stack = new_node;
 		new_node->prev = NULL;
@@ -38,6 +38,7 @@ t_node	*add_node_to_list(t_node **stack, int content)
 	}
 	return (new_node);
 }
+
 int	stacklen(t_node *node)
 {
 	int	i;
@@ -54,10 +55,11 @@ int	stacklen(t_node *node)
 	}
 	return (i);
 }
+
 void	freestack(t_node **stack)
 {
-	t_node *temp;
-	t_node *actual;
+	t_node	*temp;
+	t_node	*actual;
 
 	if (!stack)
 		return ;
