@@ -19,7 +19,7 @@ long	ft_atol(char *nbr)
 	int		sig;
 
 	n = 0;
-	sig = 0;
+	sig = 1;
 	i = 0;
 	while (nbr[i] && nbr[i] == ' ')
 		i++;
@@ -74,17 +74,3 @@ int	is_repeat(t_node *stack_a, int nbr)
 	return (0);
 }
 
-void	freearg(char **arg)
-{
-	int	i;
-
-	if (!arg)
-		return ;
-	i = 0;
-	while (arg[i])
-	{
-		free(arg[i]);
-		i++;
-	}
-	free(arg);
-}

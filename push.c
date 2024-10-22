@@ -16,7 +16,7 @@ void	push(t_node **dest, t_node **origin)
 {
 	t_node	*node_to_push;
 
-	if (!origin)
+	if (!*origin)
 		return ;
 	node_to_push = *origin;
 	*origin = (*origin)->next;
@@ -26,7 +26,7 @@ void	push(t_node **dest, t_node **origin)
 	if (!*dest)
 	{
 		*dest = node_to_push;
-		node_to_push = NULL;
+		node_to_push->next = NULL;
 	}
 	else
 	{
@@ -43,7 +43,7 @@ void	pa(t_node **a, t_node **b, bool print)
 		ft_printf("pa\n");
 }
 
-void	pb(t_node **a, t_node **b, bool print)
+void	pb(t_node **b, t_node **a, bool print)
 {
 	push(b, a);
 	if (!print)

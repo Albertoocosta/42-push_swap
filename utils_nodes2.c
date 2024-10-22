@@ -54,15 +54,16 @@ t_node	*min(t_node *stack)
 
 int	check_syntax(char *str)
 {
-	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
+	int	i;
+
+	i = 0;
+	if ((str[i] == '+' || str[i] == '-') && !(ft_isdigit(str[i])))
 		return (1);
-	if ((*str == '+' || *str == '-') && !(str[1] >= '0' && str[1] <= '9'))
-		return (1);
-	while (*str)
+	while (str[i])
 	{
-		if (!(*str >= '0' && *str <= '9'))
+		if (!ft_isdigit(str[i]))
 			return (1);
-		str++;
+		i++;
 	}
 	return (0);
 }

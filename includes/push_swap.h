@@ -41,7 +41,6 @@ bool	issorted(t_node *node);
 int		is_repeat(t_node *stack_a, int nbr);
 void	ft_error(t_node **stack_a);
 void	freestack(t_node **stack);
-void	freearg(char **arg);
 t_node	*find_last(t_node *stack);
 void	push(t_node **dest, t_node **origin);
 void	pa(t_node **a, t_node **b, bool print);

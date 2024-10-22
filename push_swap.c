@@ -17,7 +17,7 @@ void	stackinit(t_node **stack_a, char **argv)
 	int		i;
 	long	nbr;
 
-	i = 0;
+	i = 1;
 	while (argv[i])
 	{
 		if (check_syntax(argv[i]))
@@ -43,7 +43,7 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
-	stackinit(&a, argv);
+	stackinit(&a, argv + 1);
 	if (!issorted(a))
 	{
 		if (stacklen(a) == 2)

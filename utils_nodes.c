@@ -43,11 +43,9 @@ int	stacklen(t_node *node)
 {
 	int	i;
 
-	i = 0;
 	if (!node)
-	{
 		return (0);
-	}
+	i = 0;
 	while (node)
 	{
 		node = node->next;
@@ -71,7 +69,7 @@ void	freestack(t_node **stack)
 		free(actual);
 		actual = temp;
 	}
-	stack = NULL;
+	*stack = NULL;
 }
 
 t_node	*find_last(t_node *stack)
