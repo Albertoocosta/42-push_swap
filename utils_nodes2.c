@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:00:43 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/10/20 19:33:32 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/10/25 19:41:42 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,9 @@ int	check_syntax(char *str)
 	int	i;
 
 	i = 0;
-	if ((str[i] == '+' || str[i] == '-') && !(ft_isdigit(str[i])))
-		return (1);
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]))
+		if (!(ft_isdigit(str[i])) && !(str[i] != '-' || str[i] != '+'))
 			return (1);
 		i++;
 	}

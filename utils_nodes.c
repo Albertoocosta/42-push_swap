@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:00:43 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/10/20 19:32:37 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/10/25 19:13:47 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	freestack(t_node **stack)
 		actual = temp;
 	}
 	*stack = NULL;
+	return ;
 }
 
 t_node	*find_last(t_node *stack)

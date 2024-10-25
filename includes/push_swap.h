@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 12:14:58 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/10/20 19:38:08 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/10/25 20:05:41 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct s_node
 
 void	stackinit(t_node **stack_a, char **argv);
 t_node	*add_node_to_list(t_node **stack, int content);
+void	ft_aux(char **aux, char ***argv);
+void	free_argv(char **argv);
 long	ft_atol(char *nbr);
 int		stacklen(t_node *node);
 bool	issorted(t_node *node);
