@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 12:14:58 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/10/25 20:05:41 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/10/30 17:48:31 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_node
 	struct s_node	*target;
 }				t_node;
 
-void	stackinit(t_node **stack_a, char **argv);
+void	stackinit(t_node **stack_a, char **argv, int argc);
 t_node	*add_node_to_list(t_node **stack, int content);
 void	ft_aux(char **aux, char ***argv);
 void	free_argv(char **argv);
@@ -41,7 +41,7 @@ long	ft_atol(char *nbr);
 int		stacklen(t_node *node);
 bool	issorted(t_node *node);
 int		is_repeat(t_node *stack_a, int nbr);
-void	ft_error(t_node **stack_a);
+void	ft_error(t_node **stack_a, char **argv);
 void	freestack(t_node **stack);
 t_node	*find_last(t_node *stack);
 void	push(t_node **dest, t_node **origin);

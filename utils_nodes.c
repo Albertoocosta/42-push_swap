@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:00:43 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/10/25 19:13:47 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/10/30 17:27:15 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	freestack(t_node **stack)
 	t_node	*temp;
 	t_node	*actual;
 
-	if (!stack)
+	if (!stack || !*stack)
 		return ;
 	actual = *stack;
 	while (actual)

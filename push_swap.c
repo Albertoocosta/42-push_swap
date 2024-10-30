@@ -6,13 +6,13 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 12:32:32 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/10/25 19:52:55 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/10/30 17:48:59 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-void	stackinit(t_node **stack_a, char **argv)
+void	stackinit(t_node **stack_a, char **argv, int argc)
 {
 	int		i;
 	long	nbr;
@@ -22,13 +22,19 @@ void	stackinit(t_node **stack_a, char **argv)
 		i++;
 	while (argv[i])
 	{
-		if (check_syntax(argv[i]))
-			ft_error(stack_a);
+		if (check_syntax(argv[i]) && argc == 2)
+			ft_error(stack_a, argv);
+		else if (check_syntax(argv[i]))
+			ft_error(stack_a, NULL);
 		nbr = ft_atol(argv[i]);
-		if (nbr > INT_MAX || nbr < INT_MIN)
-			ft_error(stack_a);
-		if (is_repeat(*stack_a, (int)nbr))
-			ft_error(stack_a);
+		if ((nbr > INT_MAX || nbr < INT_MIN) && argc == 2)
+			ft_error(stack_a, argv);
+		else if (nbr > INT_MAX || nbr < INT_MIN)
+			ft_error(stack_a, NULL);
+		if (is_repeat(*stack_a, (int)nbr) && argc == 2)
+			ft_error(stack_a, argv);
+		else if (is_repeat(*stack_a, (int)nbr))
+			ft_error(stack_a, NULL);
 		add_node_to_list(stack_a, (int)nbr);
 		i++;
 	}
@@ -63,7 +69,7 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (argc == 2)
 		ft_aux(&aux, &argv);
-	stackinit(&a, argv);
+	stackinit(&a, argv, argc);
 	if (!issorted(a))
 	{
 		if (stacklen(a) == 2)

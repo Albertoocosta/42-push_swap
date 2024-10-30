@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:00:43 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/10/25 19:52:39 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/10/30 17:40:26 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,12 @@ long	ft_atol(char *nbr)
 	return (n * sig);
 }
 
-void	ft_error(t_node **stack_a)
+void	ft_error(t_node **stack_a, char **argv)
 {
 	if (stack_a)
 		freestack(stack_a);
+	if (argv)
+		free_argv(argv);
 	ft_printf("Error\n");
 	exit(1);
 }
