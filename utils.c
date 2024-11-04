@@ -6,7 +6,7 @@
 /*   By: cda-fons <cda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:00:43 by cda-fons          #+#    #+#             */
-/*   Updated: 2024/10/30 17:40:26 by cda-fons         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:57:02 by cda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,13 @@ long	ft_atol(char *nbr)
 		i++;
 	if (!nbr[i])
 		return (1);
-	else if (nbr[i] == '+')
-		i++;
-	else if (nbr[i] == '-')
+	if (nbr[i] == '+' || nbr[i] == '-')
 	{
-		sig = -1;
+		if (nbr[i] == '-')
+			sig *= -1;
 		i++;
 	}
-	while (nbr[i] && (nbr[i] >= '0' || nbr[i] <= '9'))
+	while (nbr[i] && ft_isdigit(nbr[i]))
 	{
 		n = n * 10 + nbr[i] - '0';
 		i++;
